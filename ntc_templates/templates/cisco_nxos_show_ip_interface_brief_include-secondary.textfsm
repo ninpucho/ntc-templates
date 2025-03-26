@@ -10,7 +10,7 @@ Start
   ^Interface\s+IP\s+Address\s+Interface\s+Status
   ^\S+\s+unnumbered\s+\S+
   ^\s+\(\w+\)
-  ^\s+${IP_ADDRESS}\s*$ -> Record
-  ^${INTERFACE}\s+${IP_ADDRESS}\s+${PROTO}/${LINK}/${STATUS}\s*$ -> Record
+  ^\s+${IP_ADDRESS}\s*$$ -> Record
+  ^${INTERFACE}\s+${IP_ADDRESS}\s+${PROTO}/${LINK}/${STATUS}\s*$$ -> Record
   ^\s*$$
   ^.*$$ -> Error
