@@ -1,0 +1,16 @@
+Value Filldown VRF (\S+)
+Value Filldown INTERFACE (\S+)
+Value Required IP_ADDRESS ([a-zA-Z0-9./]+)
+Value Filldown STATUS (\S+-\S+)
+Value Filldown LINK (\S+-\S+)
+Value Filldown PROTO (\S+-\S+)
+
+Start
+  ^IP\s+Interface\s+Status\s+for\s+VRF\s+"${VRF}"\(\d+\)
+  ^Interface\s+IP\s+Address\s+Interface\s+Status
+  ^\S+\s+unnumbered\s+\S+
+  ^\s+\(\w+\)
+  ^\s+${IP_ADDRESS}\s*$ -> Record
+  ^${INTERFACE}\s+${IP_ADDRESS}\s+${PROTO}/${LINK}/${STATUS}\s*$ -> Record
+  ^\s*$$
+  ^.*$$ -> Error
